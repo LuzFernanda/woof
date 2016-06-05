@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Dogs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Raza</th>
+      <th>Calle</th>
+      <th>Numero</th>
+      <th>Colonia</th>
+      <th>Ciudad</th>
+      <th>País</th>
+      <th>CodigoPostal</th>
+      <th>Date</th>
+      <th>Characteristics</th>
+      <th>Collar</th>
+      <th>Reward</th>
+      <th>Photo</th>
+      <th>User found</th>
+      <th>User lost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dogs.each do |dog| %>
+      <tr>
+        <td><%= dog.name %></td>
+        <td><%= dog.gender %></td>
+        <td><%= dog.raza %></td>
+        <!--
+        <td><%= dog.latitude %></td>
+        <td><%= dog.longitude %></td>
+      -->
+        <td><%= dog.calle %></td>
+        <td><%= dog.numero %></td>
+        <td><%= dog.colonia %></td>
+        <td><%= dog.ciudad %></td>
+        <td><%= dog.pais %></td>
+        <td><%= dog.codigoPostal %></td>
+        <td><%= dog.date %></td>
+        <td><%= dog.characteristics %></td>
+        <td><%= dog.collar %></td>
+        <td><%= dog.reward %></td>
+        <td><%= dog.photo %></td>
+        <td><%= dog.user_found_id %></td>
+        <td><%= dog.user_lost_id %></td>
+        <td><%= link_to 'Show', dog %></td>
+        <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
+        <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dog', new_dog_path %>

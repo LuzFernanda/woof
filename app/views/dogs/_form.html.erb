@@ -1,0 +1,110 @@
+<%= form_for(@dog, html: { multipart: true}) do |f| %>
+  <% if @dog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
+
+      <ul>
+      <% @dog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <!--<%= f.label :lost %><br /> -->
+    <%= f.label :lostFound, "Encontrado", :value => "true"  %>
+    <%= f.radio_button :lostFound, true %>
+    <%= f.label :lostFound, "Perdido", :value => "false" %>
+    <%= f.radio_button :lostFound, false, :checked => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Nombre %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Género %><br>
+    <%= f.select :gender, [['Macho', 'Macho'], ['Hembra', 'Hembra']], {}, {class: 'clase_de_css', id: 'id_de_css'} %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :raza_id %><br>
+    <%= f.select :raza_id, Raza.all.collect { |s| [s.name, s.id] }, {}, {class: 'clase_de_css', id: 'id_de_css'} %>
+  </div>
+
+<h4>Ubicación</h4>
+<div class="panel-body" style="width:200px; border: dashed 1px;">
+ 
+  <div class="field">
+    <%= f.label :Calle %><br>
+    <%= f.text_field :calle%>
+  </div>
+
+   <div class="field">
+    <%= f.label :Número %><br>
+    <%= f.text_field :numero %>
+  </div>
+
+   <div class="field">
+    <%= f.label :Colonia %><br>
+    <%= f.text_field :colonia %>
+  </div>
+
+   <div class="field">
+    <%= f.label :Ciudad %><br>
+    <%= f.text_field :ciudad %>
+  </div>
+
+   <div class="field">
+    <%= f.label :País %><br>
+    <%= f.text_field :pais %>
+  </div>
+
+   <div class="field">
+    <%= f.label :CodigoPostal %><br>
+    <%= f.text_field :codigoPostal %>
+  </div>
+</div>
+  <!--
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div> -->
+  <div class="field">
+    <%= f.label :Fecha %><br>
+    <%= f.date_select :date%>
+  </div>
+  <div class="field">
+    <%= f.label :Características %><br>
+    <%= f.text_area :characteristics %>
+  </div>
+  <div class="field">
+    <%= f.label :collar %><br>
+    <%= f.select :collar, [['Si', true], ['No', false]], {}, {class: 'clase_de_css', id: 'id_de_css'} %>
+  </div>
+  <div class="field">
+    <%= f.label :reward %><br>
+    <%= f.number_field :reward %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br>
+    <%= f.file_field :photo %>
+  </div>
+  <div class="field">
+    <%= f.label :user_found_id %><br>
+    <%= f.number_field :user_found_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_lost_id %><br>
+    <%= f.number_field :user_lost_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

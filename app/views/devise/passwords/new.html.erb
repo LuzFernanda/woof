@@ -1,5 +1,14 @@
-<h2>Forgot your password?</h2>
+<!DOCTYPE html>
+<html style="height:100%;margin:0px;">
+<head>
 
+</head>
+<body style="height:100%;margin:0px;">
+	<div class="jumbotron" style="position:relative; box-sizing:border-box; margin:0px; padding-top: 80px; background-color:#1BB5B0; color: white; height:200px">
+	    <h1 style = "text-align:center;">Olvidaste tu contraseña <img src="/assets/huella.png" width="100px"></h1>
+	</div>
+
+<div style="text-align: center;">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -14,3 +23,6 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</body>
+</html>

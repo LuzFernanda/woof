@@ -29,7 +29,7 @@ class DogsController < ApplicationController
 
     respond_to do |format|
       if @dog.save
-        format.html { redirect_to @dog, notice: 'Dog was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Dog was successfully created.' }
         format.json { render :show, status: :created, location: @dog }
       else
         format.html { render :new }

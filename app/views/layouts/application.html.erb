@@ -28,20 +28,24 @@
           </button> <a class="navbar-brand" href="<%= pages_inicio_path %>"><img src="/assets/logo.png" width="125" height="45" style="clear:left; padding: 0px; margin-top: -10px"> 
         </div>
         <div class="collapse navbar-collapse" id="collapse-menu">
-          <ul class="nav navbar-nav navbar-right">
-            <li style="font-family:Gill Sans;"><a class="nav-link-custom" href="#">Sign In</a>
-
+          <ul class= "nav navbar-nav navbar-right" style="margin:0px;">
+            <% if user_signed_in? %>
+              <li style="font-family:Gill Sans;">
+                <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+              </li>
+            <% else %>
+            <li style="font-family:Gill Sans;">
+              <%= link_to('Login', new_user_session_path)  %>
             </li>
+            <% end %>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
             <li style="font-family:Gill Sans;"><a href="<%= pages_perrosencontrados_path %>">Perros Encontrados</a>
-
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li style="font-family:Gill Sans;"><a href="<%= pages_perrosperdidos_path %>">Perros Perdidos</a>
-
             </li>
           </ul>
           

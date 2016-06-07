@@ -4,52 +4,53 @@
 
 </head>
 <body style="height:100%;margin:0px;">
+
   <div class="jumbotron" style="position:relative; box-sizing:border-box; margin:0px; padding-top: 80px; background-color:#1BB5B0; color: white; height:250px">
-      <h1 style = "text-align:center;">HEADER <img src="/assets/home.png" width="100px" style="padding:0px;"></h1>
+      <h1 style = "text-align:center;">Dueños que buscan a su perro <img src="/assets/huella.png" width="100px" style="padding: 0px;"></h1>
   </div>
 
   <div class="panel-body" style="padding:0px;width:25%; height:100%; float:left; border: dashed 1px;">
       <h3 style="text-align:center;margin-top:10px;" >Filtra tu busqueda</h3>
-      <%= form_tag("/dogs/search", method: "get") do %>
+      
+      <%= form_tag("/dogs/search", method: "post") do %> <!-- cambiar por "post"--> 
        <div class="field">
             <%=label_tag :raza_id %><br>
             <%= select_tag :raza_id, options_for_select(Raza.all.collect { |s| [s.name, s.id] })%>
-        </div>
+        </div> 
         <div class="field">
             <%=label_tag :Género %><br>
             <%=select_tag :gender, options_for_select([['Macho', 'Macho'], ['Hembra', 'Hembra']]) %>
         </div>
+        
         <div class="field">
           <%= label_tag(:q, "Fecha:") %> <br>
           <%=text_field_tag 'Fecha', nil, class: 'date-field'%>
-        </div>
-      <%= submit_tag("Search") %>
-
-    <% end %>
-  </div>
-
-  </div>
+        </div> 
+        <%= submit_tag("Search") %> 
+    
+        <%end%> 
    </div>
   <div class="panel-body" style="padding:0px;width:75%; height:100%; float:left; border: dashed 1px;">
     <h1 style="text-align:center;margin-top:10px;">LISTA DE LOS PERROS</h1>
-    <p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
+ 
 
-<h1>Listing Dogs</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Gender</th>
-      <th>Raza</th>
-      <th>Calle</th>
+      <!--<th>Name</th>
+      <th >Gender</th>
+      <th>Raza</th> 
+      <th >Calle</th>
       <th>Numero</th>
       <th>Colonia</th>
       <th>Ciudad</th>
-      <th>País</th>
+      <th>Pais</th>
       <th>CodigoPostal</th>
       <th>Date</th>
-      <th>Characteristics</th>
+      
+      <th >Characteristics</th>
       <th>Collar</th>
       <th>Reward</th>
       <th>Photo</th>
@@ -57,35 +58,41 @@
       <th>User lost</th>
       <th colspan="3"></th>
     </tr>
+    -->
   </thead>
 
   <tbody>
     <% @dogs.each do |dog| %>
-      <tr>
-        <td><%= dog.name %></td>
-        <td><%= dog.gender %></td>
+     <!-- <tr>
+        <td class="oculto"><%= dog.name %></td>
+        <td ><%= dog.gender %></td>
         <td><%= dog.raza %></td>
-        <!--
         <td><%= dog.latitude %></td>
-        <td><%= dog.longitude %></td>
-      -->
-        <td><%= dog.calle %></td>
-        <td><%= dog.numero %></td>
-        <td><%= dog.colonia %></td>
-        <td><%= dog.ciudad %></td>
-        <td><%= dog.pais %></td>
-        <td><%= dog.codigoPostal %></td>
-        <td><%= dog.date %></td>
-        <td><%= dog.characteristics %></td>
-        <td><%= dog.collar %></td>
-        <td><%= dog.reward %></td>
-        <td><%= dog.photo %></td>
-        <td><%= dog.user_found_id %></td>
-        <td><%= dog.user_lost_id %></td>
-        <td><%= link_to 'Show', dog %></td>
+        <td><%= dog.longitude %></td> 
+        <td class="oculto"><%= dog.calle %></td>
+        <td class="oculto"><%= dog.numero %></td>
+        <td class="oculto"><%= dog.colonia %></td>
+        <td class="oculto"><%= dog.ciudad %></td>
+        <td class="oculto"><%= dog.pais %></td>
+        <td class="oculto"><%= dog.codigoPostal %></td>
+        <td class="oculto"><%= dog.date %></td>
+        <td ><%= dog.characteristics %></td>
+        <td class="oculto"><%= dog.collar %></td>
+        <td class="oculto"><%= dog.reward %></td>
+        <td><%= image_tag dog.photo %></td> 
+        <td class="oculto"><%= dog.user_found_id %></td>
+        <td class="oculto"><%= dog.user_lost_id %></td>
+        <td ><%= link_to 'Show', dog %></td>
         <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
         <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr> -->
+      <tr>
+      <td class="anuncio"><%= dog.gender %> , <%= dog.raza %></td>
       </tr>
+      <tr><td><%= image_tag dog.photo %></td>
+      <td ><%= link_to 'Ver completo', dog %></td>
+      </tr>
+
     <% end %>
   </tbody>
 </table>
@@ -94,6 +101,3 @@
 
 </body>
 </html>
-
-
-

@@ -38,15 +38,20 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>Encuentra a tu amigo</h1>
+                <h1>La manera más sencilla de reecontrarte con tu perro</h1>
                 <hr>
-                <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-               <a href="<%= pages_perrosencontrados_path %>" class="btn btn-primary btn-principal btn-xl"> Perros encontrados</a>
-                <a href="<%= pages_perrosperdidos_path %>" class="btn btn-primary btn-principal btn-xl"> Perros perdidos</a>
-                <div>
-                        <a href="/dogs/new" class="btn btn-primary btn-principal btn-xl"> ¿Encontraste o Perdiste un Perro?</a>
+               <div style="padding:0px;width:50%;float:left;margin-bottom:10px;">
+                    <h3>¿Perdiste a tu perro? </h3>
+                    <a href="<%= dogs_search_path %>" class="btn btn-primary btn-principal btn-xl"> Búscalo aquí</a>
                 </div>
-
+                <div style="padding:0px;width:50%;float:left;margin-bottom:10px;">
+                    <h3>¿Encontraste un perro? </h3>
+                    <a href="<%= dogs_search_path %>" class="btn btn-primary btn-principal btn-xl"> Busca a su dueño aquí</a>
+                </div>
+                <div style="margin-top:10px">
+                    <div><h2>¿Encontraste o perdiste un perro?</h2></div>
+                    <a href="/dogs/new" class="btn btn-primary btn-principal btn-xl"> Registralo aquí</a>
+                </div>
             </div>
         </div>
     </header>
@@ -55,9 +60,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading"style="font-size:45px" >Frase que represente lo que es woof </h2>
+                    <h2 class="section-heading"style="font-size:45px" >Un perro es la única cosa en la Tierra que te amará más de lo que se ama a si mismo</h2>
                     <hr class="light">
-                    <p class="text-faded" style="font-size:20px">La misión de Woof es ayudar en la busqueda de tu amigo de 4 patas para reunirte y devolver esa felicidad a tu hogar </p>
+                    <p class="text-faded" style="font-size:20px">Ayudalo a regresar a casa </p>
                     <img src="/assets/img2.png" width="600" height="200" border="0" style="position: relative;">
                     <!--<a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>-->
                 </div>
@@ -69,7 +74,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Como funciona Woof</h2>
+                    <h2 class="section-heading">Finales Felices</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -79,127 +84,34 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                        <h3>Sturdy Templates</h3>
-                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                        <h3>Toby</h3>
+                        <p class="text-muted">Reencontrado el 10 de marzo del 2016</p>
+                        <img src="/assets/toby.jpg" style="float:left; width:300px; height:300px;">
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-                        <h3>Ready to Ship</h3>
-                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                        <h3>Lucas</h3>
+                        <p class="text-muted">Reecontrado el 21 de marzo del 2016 </p>
+                        <img src="/assets/lucas.jpg" style="float:left; width:300px; height:300px;">
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-                        <h3>Up to Date</h3>
-                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                        <h3>Bruno</h3>
+                        <p class="text-muted">Reecontrado el 17 de abril del 2016</p>
+                        <img src="/assets/bruno.jpg" style="float:left; width:300px; height:300px;">
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
+                    <div class="service-box" >
                         <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-                        <h3>Made with Love</h3>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
+                        <h3>Chloe</h3>
+                        <p class="text-muted">Reecontrado el 30 de mayo del 2016</p>
+                        <img src="/assets/chloe.jpg" style="float:left width:300px; height:300px;">
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-            <div class="row no-gutter popup-gallery">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>
@@ -208,31 +120,11 @@
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>Free Download at Start Bootstrap!</h2>
-                <a href="http://startbootstrap.com/template-overviews/creative/" class="btn btn-default btn-xl sr-button">Download Now!</a>
+                <p>©2016 Woof,Find ur Buddy. Todos los derechos reservados</p>
             </div>
         </div>
     </aside>
 
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">La historia de Woof</h2>
-                    <hr class="primary">
-                    <p>PEQUEÑA HISTORIA DE COMO SE LLEGO A LA IDEA, PORQUE SE QUISO CREAR ESTE SITIO</p>
-                </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

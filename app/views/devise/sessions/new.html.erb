@@ -5,8 +5,19 @@
 <body style="height:100%;margin:0px;">
 
 <div class="jumbotron" style="position:relative; box-sizing:border-box; margin:0px; padding-top: 80px; background-color:#1BB5B0; color: white; height:250px">
-      <h1 style = "text-align:center;">Log In <img src="/assets/huella.png" width="100px"></h1>
+      <h1 style = "text-align:center;">Log In <img src="/assets/huella.png" width="100px" style="padding:0px;"></h1>
 </div>
+<% if alert %>
+                    <div class="alert alert-danger" style="text-align:center;">
+                        <% if alert.kind_of?(Array) %>
+                            <% alert.each do |message| %>
+                                <p><%= message %></p>
+                            <% end %>
+                        <% else %>
+                            <%= alert %>
+                        <% end %>
+                    </div>
+                <% end %>
 <div style="text-align: center;">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">

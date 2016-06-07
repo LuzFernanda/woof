@@ -1,4 +1,38 @@
-<p id="notice"><%= notice %></p>
+!DOCTYPE html>
+<html style="height:100%;margin:0px;">
+<head>
+
+</head>
+<body style="height:100%;margin:0px;">
+  <div class="jumbotron" style="position:relative; box-sizing:border-box; margin:0px; padding-top: 80px; background-color:#1BB5B0; color: white; height:250px">
+      <h1 style = "text-align:center;">HEADER <img src="/assets/home.png" width="100px" style="padding:0px;"></h1>
+  </div>
+
+  <div class="panel-body" style="padding:0px;width:25%; height:100%; float:left; border: dashed 1px;">
+      <h3 style="text-align:center;margin-top:10px;" >Filtra tu busqueda</h3>
+      <%= form_tag("/dogs/search", method: "get") do %>
+       <div class="field">
+            <%=label_tag :raza_id %><br>
+            <%= select_tag :raza_id, options_for_select(Raza.all.collect { |s| [s.name, s.id] })%>
+        </div>
+        <div class="field">
+            <%=label_tag :Género %><br>
+            <%=select_tag :gender, options_for_select([['Macho', 'Macho'], ['Hembra', 'Hembra']]) %>
+        </div>
+        <div class="field">
+          <%= label_tag(:q, "Fecha:") %> <br>
+          <%=text_field_tag 'Fecha', nil, class: 'date-field'%>
+        </div>
+      <%= submit_tag("Search") %>
+
+    <% end %>
+  </div>
+
+  </div>
+   </div>
+  <div class="panel-body" style="padding:0px;width:75%; height:100%; float:left; border: dashed 1px;">
+    <h1 style="text-align:center;margin-top:10px;">LISTA DE LOS PERROS</h1>
+    <p id="notice"><%= notice %></p>
 
 <h1>Listing Dogs</h1>
 
@@ -55,7 +89,11 @@
     <% end %>
   </tbody>
 </table>
+  </div>
 
-<br>
 
-<%= link_to 'New Dog', new_dog_path %>
+</body>
+</html>
+
+
+

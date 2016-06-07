@@ -8,6 +8,23 @@ class DogsController < ApplicationController
     @dogs = Dog.all
   end
 
+def search
+  @dogs = Dog.order("date DESC")
+     #AQUI  SE FILTRA RAZA
+    if params[:raza].present?
+      @dogs = @dogs.where("raza ILIKE ?", "%#{params[:raza]}%")
+    end
+     #AQUI BUSCA GENERO 
+    if params[:gender].present?
+      @dogs = @dogs.where("gender ILIKE ?", "%#{params[:gender]}%")
+    end 
+    #Aquí busca por fecha 
+    #if params[:date].present?
+    #  @dogs = @dogs.where("date ILIKE ?", "%#{params[:date]}%")
+    #end
+    render 'index'
+end
+
   # GET /dogs/1
   # GET /dogs/1.json
   def show

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   get 'pages/perrosencontrados'
 
+  get 'dogs/search'
+
+  post 'dogs/search'
+
   root'pages#inicio'
 
   devise_for :users

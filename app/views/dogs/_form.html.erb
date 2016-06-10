@@ -78,7 +78,7 @@
   </div> -->
   <div class="field">
     <%= f.label :Fecha %><br>
-    <%= f.date_select :date%>
+    <%= f.date_select :date %>
   </div>
   <div class="field">
     <%= f.label :Características %><br>
@@ -90,20 +90,23 @@
   </div>
   <div class="field">
     <%= f.label :reward %><br>
-    <%= f.number_field :reward %>
+    <%= f.number_field :reward, min: 0 %>
   </div>
   <div class="field">
     <%= f.label :photo %><br>
     <%= f.file_field :photo %>
   </div>
+<!--
   <div class="field">
     <%= f.label :user_found_id %><br>
     <%= f.number_field :user_found_id %>
   </div>
+-->
   <div class="field">
-    <%= f.label :user_lost_id %><br>
-    <%= f.number_field :user_lost_id %>
+    <%= f.label :Telefono %><br>
+    <%= f.text_field :user_lost_id %>
   </div>
+
   <div class="actions">
     <%= f.submit :class => "button", :onclick => "alert('Tu anuncio ha sido publicado exitosamente')" %>
   </div>

@@ -40,22 +40,41 @@
             <div class="header-content-inner">
                 <h1>La manera más sencilla de reecontrarte con tu perro</h1>
                 <hr>
-               <div style="padding:0px;width:50%;float:left;margin-bottom:10px;">
-                    <h3>¿Perdiste a tu perro? </h3>
-                    <a href="<%= dogs_search_path %>" class="btn btn-primary btn-principal btn-xl"> Búscalo aquí</a>
+
+                <div  class="central">
+                <div class="portfolio-box-caption" >
+                            <div class="portfolio-box-caption-content izquierda" style="text-align:center;">
+                                <div >
+                                   <h3>¿Perdiste a tu perro? </h3>
+                                </div>
+                                <div >       
+                                    <a href="/dogs/search?lostFound=true" class="btn btn-primary btn-principal btn-xl"> Búscalo aquí</a>
+                                </div>
+                            </div>
+                </div>        
+                </div>        
+                <div  class="central">
+                <div class="portfolio-box-caption" >
+                            <div class="portfolio-box-caption-content derecha style="text-align:center;"">
+                                <div>
+                                   <h3>¿Encontraste un perro? </h3>
+                                </div>
+                                <div >       
+                                    <a href="/dogs/search?lostFound=false" class="btn btn-primary btn-principal btn-xl"> Busca a su dueño aquí</a>
+                                </div>
+                            </div>
+                </div>        
+                </div>    
+                <div class="portfolio-box-caption-content " style="text-align:center;">
+                                <div>
+                                   <h3>¿Encontraste o perdiste un perro? </h3>
+                                </div>
+                                <div >       
+                                    <a href="/dogs/new" class="btn btn-primary btn-principal btn-xl"> Regístralo aquí</a>
+                                </div>
                 </div>
-                <div style="padding:0px;width:50%;float:left;margin-bottom:10px;">
-                    <h3>¿Encontraste un perro? </h3>
-                    <a href="<%= dogs_search_path %>" class="btn btn-primary btn-principal btn-xl"> Busca a su dueño aquí</a>
-                </div>
-                <div style="margin-top:10px">
-                    <div><h2>¿Encontraste o perdiste un perro?</h2></div>
-                    <a href="/dogs/new" class="btn btn-primary btn-principal btn-xl"> Registralo aquí</a>
-                </div>
-            </div>
         </div>
     </header>
-
     <section class="bg-primary" id="about"  style="background-color:#1BB5B0;">
         <div class="container">
             <div class="row">
@@ -74,7 +93,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Finales Felices</h2>
+                    <h2 class="section-heading" style="font-style:oblique;font-size:50px;">Finales Felices</h2>
                     <hr class="primary">
                 </div>
             </div>

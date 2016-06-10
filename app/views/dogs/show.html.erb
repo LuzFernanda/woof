@@ -1,75 +1,118 @@
-<p id="notice"><%= notice %></p>
+!DOCTYPE html>
+<html style="height:100%;margin:0px;">
+<head>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @dog.name %>
-</p>
+</head>
+<body style="height:100%;margin:0px;">
 
-<p>
-  <strong>Género:</strong>
-  <%= @dog.gender %>
-</p>
+  <div class="jumbotron" style="position:relative; box-sizing:border-box; margin:0px; padding-top: 80px; background-color:#1BB5B0; color: white; height:250px">
+    <%if @dog.lostFound == true %>
+      <h1 style = "text-align:center;">Perro Encontrado en <%= @dog.ciudad %> <img src="/assets/dogFace.png" width="100px" style="padding: 0px;"></h1>
+    <%else%>
+      <h1 style = "text-align:center;">Perro Perdido en <%= @dog.ciudad %> <img src="/assets/dogFace.png" width="100px" style="padding: 0px;"></h1>
+    <%end%>
+  </div>
 
-<p>
-  <strong>Raza:</strong>
-  <%= @dog.raza %>
-</p>
+<!--<p id="notice"><%= notice %></p>-->
+<!--1ºdiv-->
+<div class="panel-body" style="padding:0px;width:25%;float:left;">
+      <%= image_tag @dog.photo %>
+</div>
+<!--2ºdiv-->
+<div class="panel-body" style="padding:0px;width:25%;float:left;"> 
+  <h1> <strong>Nombre:</strong>
+    <%= @dog.name %>
+  </h1>
+  <div>
+    <p style ="float:left;padding-right:10px;font-size:15px;">
+      <strong>Género:</strong>
+      <%= @dog.gender %>
+    </p>
 
-<p>
-  <strong>Calle:</strong>
-  <%= @dog.calle %>
-</p>
+    <p style ="float:left;font-size:15px;">
+      <strong> Raza:</strong>
+      <%= @dog.raza %>
+    </p>
+  </div>
+  <br><h4><strong>Ubicación</strong></h4>
+  <div class="panel-body" style="width:200px; border: dashed 1px;padding-bottom:0px;">
+    <p>
+      <strong>Calle:</strong>
+      <%= @dog.calle %>
+    </p>
+    <p>
+      <strong>Número:</strong>
+      <%= @dog.numero %>
+    </p>
+    <p>
+      <strong>Colonia:</strong>
+      <%= @dog.colonia %>
+    </p>
+    <p>
+      <strong>Ciudad:</strong>
+      <%= @dog.ciudad %>
+    </p>
+    <p>
+      <strong>País:</strong>
+      <%= @dog.pais %>
+    </p>
+    <p>
+      <strong>Codigo Postal:</strong>
+      <%= @dog.codigoPostal %>
+    </p>
+    <!--<p>
+      <strong>Longitud:</strong>
+      <%= @dog.longitude %>
+    </p>
+    <p>
+      <strong>Latitud:</strong>
+      <%= @dog.latitude %>
+    </p>
+  -->
+  </div>
+</div>
+<!--3ºdiv-->
+<div class="panel-body" style="padding:0px;width:25%;float:left;">
+  
+  <h1> <strong>Fecha:</strong>
+   <%= @dog.date %>
+  </h1>
 
-<p>
-  <strong>Número:</strong>
-  <%= @dog.numero %>
-</p>
+  <p style="font-size:15px;">
+    <strong>Características:</strong>
+    <%= @dog.characteristics %>
+  </p>
 
-<p>
-  <strong>Colonia:</strong>
-  <%= @dog.colonia %>
-</p>
+  <p style="font-size:15px;">
+    <strong>Collar:</strong>
+    <%if @dog.collar == true%>
+      Si
+    <%else%>
+      No
+    <%end%>
+  </p>
 
-<p>
-  <strong>Ciudad:</strong>
-  <%= @dog.ciudad %>
-</p>
-
-<p>
-  <strong>País:</strong>
-  <%= @dog.pais %>
-</p>
-
-<p>
-  <strong>Codigo Postal:</strong>
-  <%= @dog.codigoPostal %>
-</p>
-
-<p>
-  <strong>Fecha:</strong>
-  <%= @dog.date %>
-</p>
-
-
-<p>
-  <strong>Características:</strong>
-  <%= @dog.characteristics %>
-</p>
-
-<p>
-  <strong>Collar:</strong>
-  <%= @dog.collar %>
-</p>
-
-<p>
-  <strong>Recompensa:</strong>
-  <%= @dog.reward %>
-</p>
-
-<p>
-  <strong>Foto:</strong>
-  <%= image_tag @dog.photo %>
-</p>
+  <p style="font-size:15px;">
+    <strong>Recompensa:</strong>
+    <%if @dog.reward == nil %>
+      No Aplica
+    <%else%>
+      <%= @dog.reward %>
+    <%end%>
+  </p>
+</div>
+<!--4ºdiv-->
+<div class="panel-body" style="padding:0px;width:25%;float:left;">
+  <h1> <strong>Contacto:</strong> </h1>
+  <p style="font-size:15px;">
+    <strong> Email: </strong>
+    <%=@dog.user_found.email  %>
+  </p>
+  <p style="font-size:15px;">
+    <strong> Teléfono </strong>
+    <%=@dog.user_lost_id  %>
+  </p>
+</div>
 <!--
 <p>
   <strong>User found:</strong>
@@ -80,7 +123,10 @@
   <strong>User lost:</strong>
   <%= @dog.user_lost_id %>
 </p>
--->
+
 
 <%= link_to 'Edit', edit_dog_path(@dog) %> |
 <%= link_to 'Back', dogs_path %>
+-->
+</body>
+</html>

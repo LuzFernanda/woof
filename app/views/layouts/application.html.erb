@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2EP1XOQXR6WGoJaRktsOs40m1GWlYbyo"></script>
 <head>
   <title>Woof2</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -40,7 +41,15 @@
               <%= link_to('Login', new_user_session_path)  %>
             </li>
             <% end %>
-          </ul>          
+          </ul>  
+           <ul class="nav navbar-nav navbar-right">
+            <li style="font-family:Gill Sans;"><a href="/dogs/search?lostFound=true">Lista de Perros Encontrados</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li style="font-family:Gill Sans;"><a href="/dogs/search?lostFound=false">Lista de Perros Perdidos</a>
+            </li>
+          </ul>        
         </div>
       </div>
     </nav>

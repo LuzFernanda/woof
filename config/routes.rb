@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'pages/perrosencontrados'
 
+  get'dogs/map_data'
+
   get 'dogs/search'
 
   post 'dogs/search'

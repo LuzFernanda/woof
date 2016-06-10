@@ -111,6 +111,10 @@
                       <%= @dog.pais %>
                   </div>
                   </div>
+                <%if current_user.id == @dog.user_found_id%>
+                   <%= link_to 'Borrar Perro', @dog, method: :delete, data: { confirm: '¿Estás seguro que este perro regresó a casa?' } %>
+                <%end%>
+
 
 </body>
 </html>

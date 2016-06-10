@@ -5,7 +5,7 @@ class Dog < ActiveRecord::Base
   belongs_to :user
   validates_associated :user
   mount_uploader :photo, DogImageUploader
-  validates_presence_of  :raza, :codigoPostal, :ciudad, :pais
+  validates_presence_of  :raza, :codigoPostal, :ciudad, :pais, :gender
 
   geocoded_by :address
   after_validation :geocode

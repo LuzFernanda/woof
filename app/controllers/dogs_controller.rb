@@ -24,20 +24,37 @@ def search
   end
 
     #Se filtran los tres
-    if params[:date].present? & params[:raza_id].present? & params[:gender].present?
+    if params[:date].present? & params[:raza_id].present? & params[:gender].present? & params[:ciudad].present?
+         @dogs = Dog.where(date: params[:date],raza_id: params[:raza_id], gender: params[:gender]).where("unaccent(ciudad) ILIKE ?", "%#{params[:ciudad].mb_chars.normalize(:kd).downcase.to_s}%")
+    elsif params[:date].present? & params[:raza_id].present? & params[:gender].present?
          @dogs = Dog.where(date: params[:date],raza_id: params[:raza_id], gender: params[:gender])
+    elsif params[:date].present? & params[:raza_id].present? & params[:ciudad].present?
+         @dogs = Dog.where(date: params[:date],raza_id: params[:raza_id]).where("unaccent(ciudad) ILIKE ?", "%#{params[:ciudad].mb_chars.normalize(:kd).downcase.to_s}%")
+    elsif params[:gender].present? & params[:raza_id].present? & params[:ciudad].present?
+         @dogs = Dog.where(gender: params[:gender],raza_id: params[:raza_id]).where("unaccent(ciudad) ILIKE ?", "%#{params[:ciudad].mb_chars.normalize(:kd).downcase.to_s}%")
+    elsif params[:gender].present? & params[:date].present? & params[:ciudad].present?
+         @dogs = Dog.where(gender: params[:gender],date: params[:date]).where("unaccent(ciudad) ILIKE ?", "%#{params[:ciudad].mb_chars.normalize(:kd).downcase.to_s}%")
     elsif params[:date].present? & params[:raza_id].present?
          @dogs = Dog.where(date: params[:date],raza_id: params[:raza_id])
     elsif params[:date].present? & params[:gender].present?
          @dogs = Dog.where(date: params[:date],gender: params[:gender])
+    elsif params[:date].present? & params[:ciudad].present?
+         @dogs = Dog.where(date: params[:date]).where("unaccent(ciudad) ILIKE ?", "%#{params[:ciudad].mb_chars.normalize(:kd).downcase.to_s}%")
     elsif params[:raza_id].present? & params[:gender].present?
           @dogs = Dog.where(raza_id: params[:raza_id], gender: params[:gender])
+    elsif params[:raza_id].present? & params[:ciudad].present?
+          @dogs = Dog.where(raza_id: params[:raza_id]).where("unaccent(ciudad) ILIKE ?", "%#{params[:ciudad].mb_chars.normalize(:kd).downcase.to_s}%")
+    elsif params[:gender].present? & params[:ciudad].present?
+          @dogs = Dog.where(gender: params[:gender]).where("unaccent(ciudad) ILIKE ?", "%#{params[:ciudad].mb_chars.normalize(:kd).downcase.to_s}%")
     elsif params[:date].present?
          @dogs = Dog.where(date: params[:date])   
     elsif params[:raza_id].present? 
       @dogs = @dogs.where(raza_id: params[:raza_id])
     elsif params[:gender].present?
       @dogs = @dogs.where(gender: params[:gender])
+    elsif params[:ciudad].present?
+      @dogs = @dogs.where("unaccent(ciudad) ILIKE ?", "%#{params[:ciudad].mb_chars.normalize(:kd).downcase.to_s}%")
+      #@dogs = @dogs.where(ciudad: params[:ciudad])
     end
     render 'index'
 end
@@ -62,7 +79,6 @@ end
   def create
     @dog = Dog.new(dog_params)
     @dog.user_found_id = current_user.id
-
     respond_to do |format|
       if @dog.save 
         if @dog.lostFound == true

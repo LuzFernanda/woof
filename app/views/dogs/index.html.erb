@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12" style="margin-bottom:15px;">
-                        <%=text_field_tag 'Ciudad',nil, class: 'form-control', placeholder:"Ciudad" %>
+                        <%=text_field_tag :ciudad,nil, class: 'form-control', placeholder:"Ciudad" %>
                     </div>
                 </div>
                 
@@ -59,20 +59,26 @@
   
       <% @dogs.each do |dog| %> 
       
-        <div class="col-md-4">
+        <div class="col-md-4 dog">
           <%= link_to dog, :class=>"portfolio-box" do%>
           <%= image_tag dog.photo, :class=>"img-responsive"%>
           <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    <%= label_tag dog.gender%>
+                                    <%= label_tag dog.gender, nil, class: 'dog-gender'%>
                                 </div>
                                 <div class="project-name">                                    
-                                    <%= label_tag dog.raza.name%>
+                                    <%= label_tag dog.raza.name, nil, class: 'dog-raza'%>
                                 </div>
+
                             </div>
-                        </div>        
-                        
+                        </div> 
+                        <%= hidden_field_tag :calle, dog.calle, class: 'dog-calle'%>
+                        <%= hidden_field_tag :numero, dog.numero, class: 'dog-numero'%>
+                        <%= hidden_field_tag :colonia, dog.colonia, class: 'dog-colonia'%>
+                        <%= hidden_field_tag :latitude, dog.latitude, class: 'dog-lat'%>
+                        <%= hidden_field_tag :longitude, dog.longitude, class: 'dog-lgt'%>
+                        <%= hidden_field_tag :id, dog.id, class: 'dog-id'%>
           <% end %>          
         </div>
     <% end %>

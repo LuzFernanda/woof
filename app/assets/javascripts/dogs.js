@@ -7,7 +7,7 @@ $(function(){
     scrollwheel: false
   });
 //---
-  
+  /*
 $.ajax(
     {
       type: "GET",
@@ -54,6 +54,48 @@ $.ajax(
 
     }
       }
+    }); */
+
+    $('.dog').each(function(dog_index, dog){
+
+      var calle = $(dog).find('.dog-calle').val();
+      var numero = $(dog).find('.dog-numero').val();
+      var colonia = $(dog).find('.dog-colonia').val();
+      var lat = parseFloat($(dog).find('.dog-lat').val());
+      var lon = parseFloat($(dog).find('.dog-lgt').val());
+      var id = $(dog).find('.dog-id').val();
+      var gender = $(dog).find('.dog-gender').attr('name');
+      var marker = new google.maps.Marker({
+      
+      position: {lat: lat , lng: lon},
+      map: map,
+      title: gender,
+      icon: '/assets/icono2.png',
+
+
+      }); 
+
+      (function(){
+        var index = dog_index;
+        var local_marker = marker;
+
+      marker.addListener('click', function() {
+      
+        var fun = (function(index){ 
+          return function(){(new google.maps.InfoWindow({content: calle + ' ' + numero + ' ' + colonia })).open(map, local_marker);};
+        })(index);
+            
+            fun()
+
+        });
+
+        marker.addListener('dblclick', function() {
+
+          document.location = '/dogs/' + id;
+        });
+
+    })(); 
     });
+
 
 });

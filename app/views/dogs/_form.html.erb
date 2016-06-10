@@ -1,4 +1,6 @@
-
+<div class="col-xs-12 col-sm-8 col-md-7 col-sm-offset-2 col-md-offset-2">
+  <div class="panel panel-default">
+    <div class="panel-body">
 <%= form_for(@dog, html: { multipart: true}) do |f| %>
   <% if @dog.errors.any? %>
     <div id="error_explanation">
@@ -11,103 +13,108 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <!--<%= f.label :lost %><br /> -->
-    <%= f.label :lostFound, "Encontrado", :value => "true"  %>
-    <%= f.radio_button :lostFound, true %>
-    <%= f.label :lostFound, "Perdido", :value => "false" %>
-    <%= f.radio_button :lostFound, false, :checked => true %>
-  </div>
+  <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                          <%= f.label :lostFound, "Encontrado", :class=>"textradio"%>
+                          <%= f.radio_button :lostFound, 'true' %>  
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-2">
+                          <%= f.label :lostFound, "Perdido", :class=>"textradio"%>
+                          <%= f.radio_button :lostFound, 'false', :checked => true %>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-1 ">
+                       <%= f.label :date, "Fecha:"%>
+                    </div>
+                      <div class="col-xs-6 col-sm-6 col-md-5 ">
+                      <%= f.date_select :date, :class=>"form-control"%>
+                    </div>
+                </div>
 
-  <div class="field">
-    <%= f.label :Nombre %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :Género %><br>
-    <%= f.select :gender, [['Macho', 'Macho'], ['Hembra', 'Hembra']], {}, {class: 'clase_de_css', id: 'id_de_css'} %>
-  </div>
 
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-5">
+                    <div class="form-group">
+                      <%= f.text_field :name, :class=>"form-control input-sm", placeholder: "Nombre" %>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-5">
+                    <div class="form-group">                      
+                        <%= f.text_field :calle, :class=>"form-control input-sm", placeholder: "Calle" %>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-2">
+                    <div class="form-group">
+                      <%= f.text_field :numero, :class=>"form-control input-sm", placeholder: "Número" %>
+                    </div>
+                  </div>
+                </div>
 
-  <div class="field">
-    <%= f.label :raza_id %><br>
-    <%= f.select :raza_id, Raza.all.collect { |s| [s.name, s.id] }, {}, {class: 'clase_de_css', id: 'id_de_css'} %>
-  </div>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-5">
+                    <div class="form-group">
+                      <%= f.select :raza_id, Raza.all.collect { |s| [s.name, s.id] }, {:prompt => "Raza"}, {class:"form-control input-sm"} %>
+                    </div>
+                  </div>  
+                  <div class="col-xs-6 col-sm-6 col-md-5">
+                    <div class="form-group">                      
+                        <%= f.text_field :colonia, :class=>"form-control input-sm", placeholder: "Colonia" %>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-2">
+                    <div class="form-group">
+                      <%= f.text_field :codigoPostal, :class=>"form-control input-sm", placeholder: "CP" %>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-5">
+                  <%= f.select :gender, [['Macho', 'Macho'], ['Hembra', 'Hembra']], {:include_blank => 'Género'}, {class:"form-control input-sm" } %>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-7">
+                    <div class="form-group">                      
+                        <%= f.text_field :ciudad, :class=>"form-control input-sm", placeholder: "Ciudad" %>
+                    </div>
+                  </div>
+                  
+                </div>
 
-<h4>Ubicación</h4>
-<div class="panel-body" style="width:200px; border: dashed 1px;">
- 
-  <div class="field">
-    <%= f.label :Calle %><br>
-    <%= f.text_field :calle%>
-  </div>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-5">
+                      <%= f.number_field :reward, min: 0, :class=>"form-control input-sm", placeholder: "Recompensa" %>
+                    </div>
+                  <div class="col-xs-6 col-sm-6 col-md-7">
+                    <div class="form-group">
+                      <%= f.text_field :pais, :class=>"form-control input-sm", placeholder: "País" %>
+                    </div>
+                  </div>
+                </div>
 
-   <div class="field">
-    <%= f.label :Número %><br>
-    <%= f.text_field :numero %>
-  </div>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-8 textradio">
+                        <%= f.text_area :characteristics, :class=>"form-control input-sm tt" , placeholder: "Características" %>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-4">
+                    <%= f.select :collar, [['Si', true], ['No', false]], {:include_blank => 'Collar'}, {class:"form-control input-sm" } %>
+                  </div>
+                </div>
 
-   <div class="field">
-    <%= f.label :Colonia %><br>
-    <%= f.text_field :colonia %>
-  </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-2">
+                      <%= f.label "Photo:" %>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                      <%= f.file_field :photo %>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-4">
+                        <%= f.text_field :user_lost_id, :class=>"form-control input-sm", placeholder: "Telefono" %>
+                    </div>
+                </div>
 
-   <div class="field">
-    <%= f.label :Ciudad %><br>
-    <%= f.text_field :ciudad %>
-  </div>
-
-   <div class="field">
-    <%= f.label :País %><br>
-    <%= f.text_field :pais %>
-  </div>
-
-   <div class="field">
-    <%= f.label :CodigoPostal %><br>
-    <%= f.text_field :codigoPostal %>
-  </div>
-</div>
-  <!--
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div> -->
-  <div class="field">
-    <%= f.label :Fecha %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :Características %><br>
-    <%= f.text_area :characteristics %>
-  </div>
-  <div class="field">
-    <%= f.label :collar %><br>
-    <%= f.select :collar, [['Si', true], ['No', false]], {}, {class: 'clase_de_css', id: 'id_de_css'} %>
-  </div>
-  <div class="field">
-    <%= f.label :reward %><br>
-    <%= f.number_field :reward, min: 0 %>
-  </div>
-  <div class="field">
-    <%= f.label :photo %><br>
-    <%= f.file_field :photo %>
-  </div>
-<!--
-  <div class="field">
-    <%= f.label :user_found_id %><br>
-    <%= f.number_field :user_found_id %>
-  </div>
--->
-  <div class="field">
-    <%= f.label :Telefono %><br>
-    <%= f.text_field :user_lost_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit :class => "button", :onclick => "alert('Tu anuncio ha sido publicado exitosamente')" %>
+  <div class="actions row col-md-12" style="margin-top:10px;">
+    <%= f.submit :class => "button btn btn-block btn-info", :onclick => "alert('Tu anuncio ha sido publicado exitosamente')" %>
   </div>
 <% end %>
+</div>
+</div>
+</div>

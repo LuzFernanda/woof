@@ -1,11 +1,10 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html style="height:100%;margin:0px;">
 <head>
-
 </head>
 <body style="height:100%;margin:0px;">
-
   <div class="jumbotron" style="position:relative; box-sizing:border-box; margin:0px; padding-top: 80px; background-color:#1BB5B0; color: white; height:250px">
+
     <%if @dog.lostFound == true %>
       <h1 style = "text-align:center;">Perro Encontrado en <%= @dog.ciudad %> <img src="/assets/dogFace.png" width="100px" style="padding: 0px;"></h1>
     <%else%>
@@ -13,120 +12,105 @@
     <%end%>
   </div>
 
-<!--<p id="notice"><%= notice %></p>-->
-<!--1ºdiv-->
-<div class="panel-body" style="padding:0px;width:25%;float:left;">
-      <%= image_tag @dog.photo %>
-</div>
-<!--2ºdiv-->
-<div class="panel-body" style="padding:0px;width:25%;float:left;"> 
-  <h1> <strong>Nombre:</strong>
-    <%= @dog.name %>
-  </h1>
-  <div>
-    <p style ="float:left;padding-right:10px;font-size:15px;">
-      <strong>Género:</strong>
-      <%= @dog.gender %>
-    </p>
+  <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-4">
+        <div class="panel panel-default" style="margin-top:10px;">
+          <div class="panel-body">
+            <div class="panel-body" style="padding:0px;width:25%;float:left;">
+                <%= image_tag @dog.photo %>
+            </div>
+          </div> 
+        </div> 
+      </div> 
+    
+    <div class="col-md-8">
+      <div class="panel panel-default" style="margin-top:10px;">
+          <div class="panel-body">
+              
+            <div class="col-md-6">
+              <div class="row" >
+                <h3><strong>Nombre:</strong><%= @dog.name %></h3>
+              </div>
+              <div class="row">
+                  <strong>Género:</strong><%= @dog.gender %>
+              </div>
+              <div class="row">
+                  <strong> Raza:</strong><%= @dog.raza %>
+              </div>
+              <div class="row">
+                  <strong>Fecha:</strong><%= @dog.date %>
+              </div>
+              <div class="row">
+                  <strong>Collar:</strong>
+                  <%if @dog.collar == true%>
+                        Si
+                  <%else%>
+                        No
+                  <%end%>
+              </div>
+              <div class="row">
+                  
+              </div>
+              <div class="row">
+                  <strong>Características:</strong>
+                      <%= @dog.characteristics %>
+              </div>
+              <div class="row">
+                   <strong>Recompensa:</strong>
+                      <%if @dog.reward == nil %>
+                        No Aplica
+                        <%else%>
+                        <%= @dog.reward %>
+                      <%end%> 
+              </div>
+              <div class="row">
+                  <h3><strong> Contacto</strong></h3>
+              </div>
+              <div class="row">
+                  <strong> Email: </strong>
+                  <%=@dog.user_found.email  %>
+              </div>
+              <div class="row">
+                  <strong> Teléfono </strong>
+                  <%=@dog.user_lost_id  %>
+              </div>
+            </div>
 
-    <p style ="float:left;font-size:15px;">
-      <strong> Raza:</strong>
-      <%= @dog.raza %>
-    </p>
-  </div>
-  <br><h4><strong>Ubicación</strong></h4>
-  <div class="panel-body" style="width:200px; border: dashed 1px;padding-bottom:0px;">
-    <p>
-      <strong>Calle:</strong>
-      <%= @dog.calle %>
-    </p>
-    <p>
-      <strong>Número:</strong>
-      <%= @dog.numero %>
-    </p>
-    <p>
-      <strong>Colonia:</strong>
-      <%= @dog.colonia %>
-    </p>
-    <p>
-      <strong>Ciudad:</strong>
-      <%= @dog.ciudad %>
-    </p>
-    <p>
-      <strong>País:</strong>
-      <%= @dog.pais %>
-    </p>
-    <p>
-      <strong>Codigo Postal:</strong>
-      <%= @dog.codigoPostal %>
-    </p>
-    <!--<p>
-      <strong>Longitud:</strong>
-      <%= @dog.longitude %>
-    </p>
-    <p>
-      <strong>Latitud:</strong>
-      <%= @dog.latitude %>
-    </p>
-  -->
-  </div>
-</div>
-<!--3ºdiv-->
-<div class="panel-body" style="padding:0px;width:25%;float:left;">
-  
-  <h1> <strong>Fecha:</strong>
-   <%= @dog.date %>
-  </h1>
+            <div class="col-md-6">
+                  <hr>
+                  <div class="row">
+                      <h3><strong>Ubicación</strong></h3>
+                  </div>
 
-  <p style="font-size:15px;">
-    <strong>Características:</strong>
-    <%= @dog.characteristics %>
-  </p>
+                  <div class="row">
+                          <strong>Calle:</strong>
+                          <%= @dog.calle %>
+                          
+                  </div>
+                  <div class="row">
+                    <strong>Número:</strong>
+                          <%= @dog.numero %>
+                  </div>
 
-  <p style="font-size:15px;">
-    <strong>Collar:</strong>
-    <%if @dog.collar == true%>
-      Si
-    <%else%>
-      No
-    <%end%>
-  </p>
+                  <div class="row">
+                    <strong>Ciudad:</strong>
+                          <%= @dog.ciudad %>
+                  </div>
 
-  <p style="font-size:15px;">
-    <strong>Recompensa:</strong>
-    <%if @dog.reward == nil %>
-      No Aplica
-    <%else%>
-      <%= @dog.reward %>
-    <%end%>
-  </p>
-</div>
-<!--4ºdiv-->
-<div class="panel-body" style="padding:0px;width:25%;float:left;">
-  <h1> <strong>Contacto:</strong> </h1>
-  <p style="font-size:15px;">
-    <strong> Email: </strong>
-    <%=@dog.user_found.email  %>
-  </p>
-  <p style="font-size:15px;">
-    <strong> Teléfono </strong>
-    <%=@dog.user_lost_id  %>
-  </p>
-</div>
-<!--
-<p>
-  <strong>User found:</strong>
-  <%= @dog.user_found_id %>
-</p>
+                  <div class="row">
+                          <strong>Codigo Postal:</strong>
+                          <%= @dog.codigoPostal %>
+                  </div>
+                  
+                  <div class="row">
+                      <strong>Colonia:</strong>
+                      <%= @dog.colonia %>
+                  </div>
+                  <div class="row">
+                      <strong>País:</strong>
+                      <%= @dog.pais %>
+                  </div>
+                  </div>
 
-<p>
-  <strong>User lost:</strong>
-  <%= @dog.user_lost_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_dog_path(@dog) %> |
-<%= link_to 'Back', dogs_path %>
--->
 </body>
 </html>
